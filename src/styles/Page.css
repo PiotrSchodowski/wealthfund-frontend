@@ -1,0 +1,93 @@
+.button-func {
+  text-align: right;
+  padding-right: 5vh;
+}
+
+.btn.btn-dark {
+  border-radius: 0% !important;
+  font-weight: bold !important;
+  color: #eee !important;
+}
+
+.btn-danger {
+  border-radius: 0% !important;
+  font-weight: bold !important;
+  color: #eee !important;
+}
+
+.create-button {
+  margin-right: 0px; /* Dodaj odstęp między przyciskami */
+}
+
+.cancel-button {
+  margin-left: 50px; /* Dodaj inne style, jeśli to konieczne */
+}
+
+/***** positions ******/
+.container-table {
+  min-height: 50vh;
+  min-width: 80vw;
+  border: 0.7px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 5vh;
+}
+
+.position-column {
+  width: 70px; /* Możesz dostosować szerokość kolumny do swoich preferencji */
+  white-space: normal; /* Pozwól na zawijanie długich nagłówków */
+  /* Dodaj inne style, jeśli to konieczne */
+}
+
+.panel-func {
+  display: flex;
+}
+
+.bold-td td {
+  font-weight: bold;
+}
+
+/***** main-wallets******/
+nav.main-wallets {
+  padding: 0 30px 0px 0;
+  text-align: center;
+}
+
+.main-wallets ul {
+  list-style-type: none;
+  display: flex; /* Ustawienie rodzica na flex container */
+  flex-wrap: wrap; /* Pozwól elementom na przewijanie do nowego wiersza, jeśli brakuje miejsca */
+  margin: 0; /* Usunięcie domyślnego marginesu */
+  padding: 0; /* Usunięcie domyślnego wcięcia */
+  justify-content: center; /* Wyrównaj elementy w poziomie (w środku) */
+  align-items: center; /* Wyrównaj elementy w pionie (w środku) */
+}
+
+nav.main-wallets a {
+  background-color: #353339;
+  min-width: 130px;
+  display: inline-block;
+  text-decoration: none;
+
+  color: #ccc;
+  font-weight: bold;
+  padding: 2px 20px;
+  margin: 10px 20px;
+  transition: 0.2s;
+  border: 2px solid transparent; /* Dodaj obramowanie, aby oddzielić elementy */
+  border-radius: 2px; /* Zaokrąglij rogi */
+}
+
+nav.main-wallets a:hover {
+  color: #eee;
+}
+
+nav.main-wallets a.active {
+  color: #fff;
+
+  transform: translateY(11px);
+}
+
+nav.main-wallets li a.active {
+  border-bottom: 5px rgb(0, 220, 183) solid;
+}

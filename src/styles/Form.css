@@ -1,0 +1,50 @@
+.alert-danger {
+  color: crimson; /* Kolor tekstu na czerwony */
+  font-size: 10px; /* Rozmiar czcionki */
+  background: none; /* Usuń tło */
+  border: none; /* Usuń obramowanie */
+  padding: 0; /* Usuń wewnętrzny odstęp */
+}
+
+/* Stylizacja tylko dla formularza "edit-form" */
+.edit-form {
+  min-width: 500px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.edit-form label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.edit-form input {
+  border-radius: 1px;
+}
+
+/* Dodatkowe style dla konkretnych elementów formularza */
+.edit-form input[type="text"] {
+  border: 1px solid #ddd;
+}
+
+.edit-form select {
+  border-radius: 1px;
+  width: 100%;
+}
+
+/* Dodatkowe style dla przycisków */
+.edit-form .create-button {
+  color: #fff;
+}
+
+.edit-form .cancel-button {
+  color: #fff;
+}
+
+.edit-form input:focus,
+.edit-form select:focus {
+  outline: none;
+  border: 0.5px solid #b3b3b3;
+  box-shadow: 0 0 2px 1px #b3b3b3;
+}
