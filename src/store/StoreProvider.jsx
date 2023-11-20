@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useState } from "react";
-import request from "../helpers/request";
 import WalletService from "../services/wallet.service";
 import AuthService from "../services/auth.service";
 
@@ -10,17 +9,7 @@ const StoreProvider = ({ children }) => {
   const [wallets, setWallets] = useState([]);
   const [message, setMessage] = useState("");
 
-  const fetchData = async () => {
-    try {
-      const { data } = await request.get("/users");
-      setUsers(data.users);
-    } catch (error) {
-      setMessage("Nie udało się pobrać danych. Spróbuj ponownie.");
-    }
-  };
-
   useEffect(() => {
-    fetchData();
     const user = AuthService.getCurrentUser();
 
     if (user && user.username) {
@@ -29,9 +18,8 @@ const StoreProvider = ({ children }) => {
           setWallets(response.data);
         })
         .catch((error) => {
-          setMessage("Nie udało się pobrać danych portfeli.");
+          setMessage("Data download failed.");
         });
-      //Tutaj dodam kolejne zaciągnięcia z serwisów i ustawianie stanów
     }
   }, []);
 

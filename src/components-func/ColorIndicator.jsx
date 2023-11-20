@@ -3,11 +3,11 @@ import React from "react";
 const ColorIndicator = ({ value }) => {
   const getColorClass = (value) => {
     if (value > 0) {
-      return "text-success"; // Zielony kolor
+      return "text-success";
     } else if (value < 0) {
-      return "text-danger"; // Czerwony kolor
+      return "text-danger";
     } else {
-      return ""; // Brak koloru
+      return "";
     }
   };
 

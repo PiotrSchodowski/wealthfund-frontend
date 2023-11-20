@@ -1,0 +1,93 @@
+.btn-danger {
+  background-color: #272627 !important;
+  border-color: #414140 !important;
+  border-radius: 10px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  font-size: smaller;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(45deg, #671224, #ae7387);
+  border: 0.2px solid #671233;
+}
+
+.btn.btn-dark {
+  background: linear-gradient(45deg, #171616, #272627);
+  border: 0.5px solid #414140;
+  border-radius: 10px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  font-size: smaller;
+}
+
+.btn.btn-dark:hover {
+  background: linear-gradient(45deg, #0d0c0d, #272627);
+}
+.btn.btn-dark-small-i {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
+  padding: 0px 7px 0px 7px;
+  background: linear-gradient(45deg, #0a0e0a, #423f3f);
+  border: 0.5px solid #414140;
+  color: #a3a195;
+  border-radius: 8px;
+  margin: 0;
+  text-decoration: none;
+}
+.btn.btn-dark-small-i:hover {
+  background: linear-gradient(45deg, #9b7f2d, #e9b302);
+  color: whitesmoke;
+  border: 0.5px solid #414140;
+}
+
+.btn.btn-dark-small-plus {
+  font-family: fantasy;
+  font-size: 12px;
+  padding: 0px 6px 0px 6px;
+  background: linear-gradient(45deg, #0a0e0a, #423f3f);
+  border: 0.5px solid #414140;
+  color: #a3a195;
+  border-radius: 8px;
+  margin: 0;
+  text-decoration: none;
+}
+
+.btn.btn-dark-small-plus:hover {
+  background: linear-gradient(45deg, #126719, #7aae73);
+  border: 0.5px solid #126719;
+  color: #fff;
+}
+
+.btn.btn-dark-small-minus {
+  font-family: fantasy;
+  font-size: 12px;
+
+  padding: 0px 8px 0px 8px;
+  background: linear-gradient(45deg, #0a0e0a, #423f3f);
+  border: 0.5px solid #414140;
+  color: #a3a195;
+  border-radius: 8px;
+  margin: 0;
+}
+
+.btn.btn-dark-small-minus:hover {
+  background: linear-gradient(45deg, #671224, #ae7387);
+  border: 0.5px solid #671233;
+  color: #fff;
+}
+
+/***************************************************/
+
+.button-func {
+  text-align: right;
+  padding-right: 5vh;
+}
+
+.create-button {
+  margin-right: 0px; /* Dodaj odstęp między przyciskami */
+}
+
+.cancel-button {
+  margin-left: 50px; /* Dodaj inne style, jeśli to konieczne */
+}

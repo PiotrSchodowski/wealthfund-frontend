@@ -1,0 +1,61 @@
+label {
+  display: block;
+  margin-top: 10px;
+  font-size: smaller;
+  color: #ff9805;
+}
+
+.card-container.card {
+  max-width: 350px !important;
+  padding: 40px 40px;
+}
+
+.card {
+  border: 1px solid #414140 !important;
+  border-radius: 20px !important;
+  background-color: #272627;
+  letter-spacing: 1.3px;
+  color: #fafbfb;
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+input {
+  background-color: #272627 !important; /* Kolor szary */
+  color: #fafbfb !important;
+  border: 1px solid #414140 !important;
+}
+
+select {
+  background-color: #272627 !important; /* Kolor szary */
+  color: #fafbfb !important;
+  border: 1px solid #414140 !important;
+}
+
+input:focus {
+  background-color: #272627 !important; /* Kolor szary również podczas fokusu */
+}
+
+input:focus,
+select:focus {
+  outline: none !important;
+  color: #dadbdb !important;
+  border: 0.2px solid #ff9805 !important;
+  box-shadow: 0 0 0.4px 0.4px #ff9805 !important;
+}

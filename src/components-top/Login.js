@@ -73,15 +73,16 @@ const Login = () => {
 
   return (
     <div className="col-md-12">
-      <div className="card card-container">
+      <div className="card card-container edit-form">
         <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+          src="/ikona.png"
           alt="profile-img"
-          className="profile-img-card"
+          className="profile-img-card img-fluid"
+          style={{ maxWidth: "70px", maxHeight: "70px" }}
         />
 
         <Form onSubmit={handleLogin} ref={form}>
-          <div className="form-group">
+          <div className="col-md-6 form-group mx-auto">
             <label htmlFor="username">Username</label>
             <Input
               type="text"
@@ -93,7 +94,7 @@ const Login = () => {
             />
           </div>
 
-          <div className="form-group">
+          <div className="col-md-6 form-group mx-auto">
             <label htmlFor="password">Password</label>
             <Input
               type="password"
@@ -113,7 +114,7 @@ const Login = () => {
               <span>Login</span>
             </button>
           </div>
-
+          <br />
           {message && (
             <div className="form-group">
               <div className="alert alert-danger" role="alert">

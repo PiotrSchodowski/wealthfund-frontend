@@ -1,54 +1,58 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  background-color: #171616;
+  color: #f6f6f8;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main";
+  grid-template-rows: 0.3fr 5fr;
+  min-height: 100vh;
+}
+
+.navbar.bg-dark {
+  background-color: #272627 !important;
+  border-bottom: 1px solid #414140 !important;
+  letter-spacing: 1px;
+  height: 10vh;
+  padding: 0% !important;
+}
+
 header {
-  height: 25vh;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  grid-area: header;
+  background-color: #0d0c0d;
+  color: white;
+  padding: 1rem;
 }
 
 main {
-  display: flex;
-  min-height: 90vh;
+  margin-top: 5vh;
+  grid-area: main;
+  padding: 1rem;
+  overflow: auto;
 }
 
-.Page {
-  background-color: #fff;
-  margin-left: auto;
-  margin-right: auto;
-  min-width: 70vw;
+.footer-container {
+  margin-top: 5vh;
+  border-top: 1px solid #414140;
+  min-width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: 0;
+  margin-left: 0;
+  background-color: #171616;
 }
 
-/************************************************* LOGOWANIE I REJESTRACJA ****************************************************/
-
-label {
-  display: block;
-  margin-top: 10px;
-}
-
-.card-container.card {
-  max-width: 350px !important;
-  padding: 40px 40px;
-}
-
-.card {
-  background-color: #f7f7f7;
-  padding: 20px 25px 30px;
-  margin: 0 auto 25px;
-  margin-top: 50px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-}
-
-.profile-img-card {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 10px;
-  display: block;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
+h4 {
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-variant: small-caps;
+  background: linear-gradient(45deg, #8b5517, #f8bbd2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

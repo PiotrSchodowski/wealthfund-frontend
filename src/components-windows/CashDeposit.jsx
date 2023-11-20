@@ -43,9 +43,7 @@ const CashDeposit = () => {
         },
         (error) => {
           const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
+            (error.response && error.response.data) ||
             error.message ||
             error.toString();
 
@@ -93,7 +91,7 @@ const CashDeposit = () => {
               Cancel
             </button>
           </div>
-
+          <br />
           {message && (
             <div className="form-group">
               <div className="alert alert-danger" role="alert">

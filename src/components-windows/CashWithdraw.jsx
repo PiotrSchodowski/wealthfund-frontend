@@ -43,11 +43,12 @@ const CashWithdraw = () => {
         },
         (error) => {
           const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
+            (error.response && error.response.data) ||
             error.message ||
             error.toString();
+          console.log("error", error.response.data);
+
+          console.log(resMessage);
 
           setMessage(resMessage);
           setLoading(false);
@@ -93,7 +94,7 @@ const CashWithdraw = () => {
               Cancel
             </button>
           </div>
-
+          <br />
           {message && (
             <div className="form-group">
               <div className="alert alert-danger" role="alert">

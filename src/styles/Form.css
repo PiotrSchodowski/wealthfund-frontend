@@ -1,45 +1,42 @@
 .alert-danger {
-  color: crimson; /* Kolor tekstu na czerwony */
-  font-size: 10px; /* Rozmiar czcionki */
-  background: none; /* Usuń tło */
-  border: none; /* Usuń obramowanie */
-  padding: 0; /* Usuń wewnętrzny odstęp */
+  color: crimson;
+  font-size: 10px;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
-/* Stylizacja tylko dla formularza "edit-form" */
 .edit-form {
   min-width: 500px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #414140;
+  border-radius: 10px;
+  background-color: #171616 !important;
 }
 
 .edit-form label {
-  text-transform: uppercase;
-  font-weight: bold;
+  text-transform: lowercase;
   font-size: 11px;
+  letter-spacing: 1.3px;
 }
 
 .edit-form input {
   border-radius: 1px;
+  color: #a3a195 !important;
+  letter-spacing: 1px;
 }
 
-/* Dodatkowe style dla konkretnych elementów formularza */
 .edit-form input[type="text"] {
   border: 1px solid #ddd;
+  color: #a3a195 !important;
+  letter-spacing: 1px;
 }
 
 .edit-form select {
   border-radius: 1px;
   width: 100%;
-}
-
-/* Dodatkowe style dla przycisków */
-.edit-form .create-button {
-  color: #fff;
-}
-
-.edit-form .cancel-button {
-  color: #fff;
+  color: #a3a195 !important;
+  letter-spacing: 1px;
 }
 
 .edit-form input:focus,

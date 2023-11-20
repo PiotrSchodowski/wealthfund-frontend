@@ -1,70 +1,88 @@
-.button-func {
-  text-align: right;
-  padding-right: 5vh;
+.container-page {
+  background-color: #272627;
+  border: 1px solid #414140;
+  border-radius: 10px;
+  padding: 5vh;
 }
-
-.btn.btn-dark {
-  border-radius: 0% !important;
-  font-weight: bold !important;
-  color: #eee !important;
+.container-page h3 {
+  color: #414140;
+  font-size: 50px;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  margin-bottom: 10vh;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-
-.btn-danger {
-  border-radius: 0% !important;
-  font-weight: bold !important;
-  color: #eee !important;
+.container-page h2 {
+  background: linear-gradient(45deg, #bb6400, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 50px;
+  letter-spacing: 8px;
+  margin-bottom: 20px;
+  margin-left: 10vh;
+  font-variant: small-caps !important;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-
-.create-button {
-  margin-right: 0px; /* Dodaj odstęp między przyciskami */
-}
-
-.cancel-button {
-  margin-left: 50px; /* Dodaj inne style, jeśli to konieczne */
-}
-
-/***** positions ******/
 .container-table {
   min-height: 50vh;
   min-width: 80vw;
-  border: 0.7px solid #ccc;
+  border: 0.7px solid #414140;
   border-radius: 5px;
   font-size: 15px;
   padding: 5vh;
 }
 
+.container-home {
+  border: 0.7px solid #414140;
+  background-color: #272627;
+  border-radius: 10px;
+  padding: 5vh;
+  margin-bottom: 10vh;
+}
+
+.container-profile {
+  border: 0.7px solid #414140;
+  background-color: #272627;
+  font-family: monospace;
+  font-variant: small-caps;
+  font-size: 27px;
+  font-weight: 400;
+  color: #a3a195;
+  border-radius: 20px;
+  padding: 5vh;
+  margin-bottom: 10vh;
+}
+
 .position-column {
-  width: 70px; /* Możesz dostosować szerokość kolumny do swoich preferencji */
-  white-space: normal; /* Pozwól na zawijanie długich nagłówków */
-  /* Dodaj inne style, jeśli to konieczne */
+  width: 70px;
+  white-space: normal;
 }
 
 .panel-func {
   display: flex;
 }
 
-.bold-td td {
-  font-weight: bold;
-}
+/***** choose-wallets******/
 
-/***** main-wallets******/
 nav.main-wallets {
   padding: 0 30px 0px 0;
   text-align: center;
+  background-color: #272627;
 }
 
 .main-wallets ul {
   list-style-type: none;
-  display: flex; /* Ustawienie rodzica na flex container */
-  flex-wrap: wrap; /* Pozwól elementom na przewijanie do nowego wiersza, jeśli brakuje miejsca */
-  margin: 0; /* Usunięcie domyślnego marginesu */
-  padding: 0; /* Usunięcie domyślnego wcięcia */
-  justify-content: center; /* Wyrównaj elementy w poziomie (w środku) */
-  align-items: center; /* Wyrównaj elementy w pionie (w środku) */
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
 }
 
 nav.main-wallets a {
-  background-color: #353339;
+  background-color: #0d0c0d;
   min-width: 130px;
   display: inline-block;
   text-decoration: none;
@@ -74,8 +92,8 @@ nav.main-wallets a {
   padding: 2px 20px;
   margin: 10px 20px;
   transition: 0.2s;
-  border: 2px solid transparent; /* Dodaj obramowanie, aby oddzielić elementy */
-  border-radius: 2px; /* Zaokrąglij rogi */
+  border: 1px solid #414140;
+  border-radius: 2px;
 }
 
 nav.main-wallets a:hover {
@@ -89,5 +107,5 @@ nav.main-wallets a.active {
 }
 
 nav.main-wallets li a.active {
-  border-bottom: 5px rgb(0, 220, 183) solid;
+  border-bottom: 2px #ff9805 solid;
 }

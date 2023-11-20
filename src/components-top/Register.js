@@ -103,18 +103,19 @@ const Register = () => {
   };
 
   return (
-    <div className="col-md-12">
-      <div className="card card-container">
+    <div className="col-md-12 ">
+      <div className="card card-container edit-form ">
         <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+          src="/ikona.png"
           alt="profile-img"
-          className="profile-img-card"
+          className="profile-img-card img-fluid"
+          style={{ maxWidth: "70px", maxHeight: "70px" }}
         />
 
         <Form onSubmit={handleRegister} ref={form}>
           {!successful && (
             <div>
-              <div className="form-group">
+              <div className="col-md-6 form-group mx-auto">
                 <label htmlFor="username">Username</label>
                 <Input
                   type="text"
@@ -126,7 +127,7 @@ const Register = () => {
                 />
               </div>
 
-              <div className="form-group">
+              <div className="col-md-6 form-group mx-auto">
                 <label htmlFor="email">Email</label>
                 <Input
                   type="text"
@@ -138,7 +139,7 @@ const Register = () => {
                 />
               </div>
 
-              <div className="form-group">
+              <div className="col-md-6 form-group mx-auto">
                 <label htmlFor="password">Password</label>
                 <Input
                   type="password"
@@ -152,15 +153,13 @@ const Register = () => {
               <br />
               <div className="form-group text-center">
                 {" "}
-                {/* Dodaj klasę 'text-center' */}
                 <button className="btn btn-dark create-button">
                   Sign Up
                 </button>{" "}
-                {/* Dodaj klasę 'btn-lg' */}
               </div>
             </div>
           )}
-
+          <br />
           {message && (
             <div className="form-group">
               <div

@@ -7,6 +7,10 @@ import CheckButton from "react-validation/build/button";
 import WalletService from "../services/wallet.service";
 import AuthService from "../services/auth.service";
 
+import "../styles/Form.css";
+import "../styles/Buttons.css";
+import "../styles/AuthForm.css";
+
 const user = AuthService.getCurrentUser();
 
 const required = (value) => {
@@ -47,16 +51,21 @@ const CreateWallet = () => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
+      if (!currency) {
+        setMessage("Currency field is required!");
+        return;
+      }
+    }
+
+    if (checkBtn.current.context._errors.length === 0) {
       WalletService.createWallet(user.username, walletName, currency).then(
-        () => {
+        async () => {
           navigate("/wallets");
           window.location.reload();
         },
         (error) => {
           const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
+            (error.response && error.response.data) ||
             error.message ||
             error.toString();
 
@@ -70,7 +79,7 @@ const CreateWallet = () => {
       <div className="card card-container">
         <Form onSubmit={handleCreateWallet} ref={form}>
           <div className="form-group">
-            <label htmlFor="walletName">Wallet Name</label>
+            <label htmlFor="walletName">wallet name</label>
             <Input
               type="text"
               className="form-control"
@@ -82,14 +91,17 @@ const CreateWallet = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="currency">Currency</label>
+            <label htmlFor="currency">currency</label>
             <select
               className="form-control"
               name="currency"
               value={currency}
               onChange={onChangeCurrency}
+              validations={[required]}
             >
-              <option value="">Choose currency</option>
+              <option value="" disabled>
+                choose currency
+              </option>
               <option value="EUR">EUR</option>
               <option value="USD">USD</option>
               <option value="PLN">PLN</option>
@@ -97,10 +109,7 @@ const CreateWallet = () => {
           </div>
           <br />
           <div className="form-group text-center">
-            <button
-              className="btn btn-dark create-button"
-              onClick={handleCreateWallet}
-            >
+            <button className="btn btn-dark" onClick={handleCreateWallet}>
               Create
             </button>
             <button
@@ -110,7 +119,7 @@ const CreateWallet = () => {
               Cancel
             </button>
           </div>
-
+          <br />
           {message && (
             <div className="form-group">
               <div className="alert alert-danger" role="alert">

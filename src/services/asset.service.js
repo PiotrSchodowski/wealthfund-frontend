@@ -21,13 +21,61 @@ const searchAssets = async (searchDto) => {
 
     return options;
   } catch (error) {
-    console.error("Błąd podczas pobierania danych:", error);
+    console.error("Error during downloading data:", error);
+    throw error;
+  }
+};
+
+const importAssetsGpw = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/import/gpwAssets`);
+    const assets = response.data;
+    return assets;
+  } catch (error) {
+    console.error("Error during downloading data:", error);
+    throw error;
+  }
+};
+
+const importAssetsUsa = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/import/usaAssets`);
+    const assets = response.data;
+    return assets;
+  } catch (error) {
+    console.error("Error during downloading data:", error);
+    throw error;
+  }
+};
+
+const importAssetsCrypto = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/import/cryptocurrencies`);
+    const assets = response.data;
+    return assets;
+  } catch (error) {
+    console.error("Error during downloading data:", error);
+    throw error;
+  }
+};
+
+const createAsset = async (AssetDto) => {
+  try {
+    const response = await axios.post(`${API_URL}/insert`, AssetDto);
+    const asset = response.data;
+    return asset;
+  } catch (error) {
+    console.error("Error during downloading data:", error);
     throw error;
   }
 };
 
 const AssetService = {
   searchAssets,
+  importAssetsGpw,
+  importAssetsUsa,
+  importAssetsCrypto,
+  createAsset,
 };
 
 export default AssetService;

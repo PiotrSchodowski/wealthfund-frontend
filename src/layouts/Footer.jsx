@@ -9,54 +9,61 @@ import {
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 
+import "../styles/App.css";
+
 const Footer = () => {
   return (
-    <footer className="bg-light text-center text-white">
-      <div className="container p-4 pb-0">
+    <footer className="bg-dark text-center text-white">
+      <div className="container p-4 pb-0 footer-container">
         <section className="mb-4">
+          {/* Facebook */}
           <a
-            className="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#3b5998" }}
-            href="#!"
+            className="btn btn-outline-light btn-floating m-1"
+            href="facebook.com"
             role="button"
           >
             <FontAwesomeIcon icon={faFacebookF} />
           </a>
+
+          {/* Twitter */}
           <a
-            className="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#55acee" }}
+            className="btn btn-outline-light btn-floating m-1"
             href="#!"
             role="button"
           >
             <FontAwesomeIcon icon={faTwitter} />
           </a>
+
+          {/* Google */}
           <a
-            className="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#dd4b39" }}
+            className="btn btn-outline-light btn-floating m-1"
             href="#!"
             role="button"
           >
             <FontAwesomeIcon icon={faGoogle} />
           </a>
+
+          {/* Instagram */}
           <a
-            className="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#ac2bac" }}
+            className="btn btn-outline-light btn-floating m-1"
             href="#!"
             role="button"
           >
             <FontAwesomeIcon icon={faInstagram} />
           </a>
+
+          {/* Linkedin */}
           <a
-            className="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#0082ca" }}
+            className="btn btn-outline-light btn-floating m-1"
             href="#!"
             role="button"
           >
             <FontAwesomeIcon icon={faLinkedinIn} />
           </a>
+
+          {/* Github */}
           <a
-            className="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#333333" }}
+            className="btn btn-outline-light btn-floating m-1"
             href="#!"
             role="button"
           >
@@ -64,14 +71,13 @@ const Footer = () => {
           </a>
         </section>
       </div>
-      <div
-        className="text-center p-3"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-      >
-        © 2020 Copyright:
-        <a className="text-white" href="https://mdbootstrap.com/">
-          MDBootstrap.com
-        </a>
+
+      <div className="text-center p-3" style={{ backgroundColor: "#171616" }}>
+        &copy; 2024 AwesomeSite. All rights reserved.
+        <p className="text-white mt-2">
+          Crafted with <span style={{ color: "#ff9805" }}>&hearts;</span> by
+          Piotr Schodowski
+        </p>
       </div>
     </footer>
   );

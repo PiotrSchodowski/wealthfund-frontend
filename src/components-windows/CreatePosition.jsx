@@ -26,15 +26,15 @@ const required = (value) => {
 
 const CreatePosition = () => {
   const { walletName } = useParams();
-  const [currencyWallet, setCurrencyWallet] = useState(null); // currentWallet.currency
+  const [currencyWallet, setCurrencyWallet] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState(""); // setMessage("Błąd podczas tworzenia pozycji:", error);
+  const [message, setMessage] = useState("");
   const [symbolOptions, setSymbolOptions] = useState([]);
   const [searchText, setSearchText] = useState("");
   let navigate = useNavigate();
 
-  const form = useRef(); // form.current.validateAll() - walidacja formularza
-  const checkBtn = useRef(); // checkBtn.current.context._errors.length === 0 - sprawdzenie czy nie ma błędów
+  const form = useRef();
+  const checkBtn = useRef();
 
   const [positionData, setPositionData] = useState({
     symbol: "",
@@ -63,7 +63,6 @@ const CreatePosition = () => {
     WalletService.getCurrentWallet(user.username, walletName)
       .then((response) => {
         setCurrencyWallet(response.currency);
-        console.log(response.currency);
       })
       .catch((error) => {
         console.error("Error retrieving wallet details:", error);
@@ -105,9 +104,7 @@ const CreatePosition = () => {
         },
         (error) => {
           const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
+            (error.response && error.response.data) ||
             error.message ||
             error.toString();
 
@@ -129,6 +126,32 @@ const CreatePosition = () => {
             <div className="col-md-6">
               <label htmlFor="symbol">Symbol</label>
               <Select
+                styles={{
+                  control: (provided, state) => ({
+                    ...provided,
+                    boxShadow: "none",
+                    border: state.isFocused ? "none" : "1px solid #414140",
+                    borderRadius: "0",
+                    backgroundColor: "#272627",
+                  }),
+                  singleValue: (provided, state) => ({
+                    ...provided,
+                    color: "#a3a195",
+                  }),
+
+                  menu: (provided, state) => ({
+                    ...provided,
+                    border: "none",
+                    boxShadow: "none",
+                    backgroundColor: "#272627",
+                  }),
+                  option: (provided, state) => ({
+                    ...provided,
+                    backgroundColor: state.isFocused ? "#171616" : "#272627",
+                    color: state.isFocused ? "#ff9805" : "#a3a195",
+                  }),
+                }}
+                className="custom-select"
                 value={symbolOptions.find(
                   (option) =>
                     option.value.toLowerCase() ===
@@ -272,7 +295,7 @@ const CreatePosition = () => {
               Cancel
             </button>
           </div>
-
+          <br />
           {message && (
             <div className="form-group">
               <div className="alert alert-danger" role="alert">

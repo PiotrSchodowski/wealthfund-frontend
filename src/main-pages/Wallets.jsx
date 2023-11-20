@@ -1,42 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { StoreContext } from "../store/StoreProvider";
 import { Link } from "react-router-dom";
+import { calculateResult, calculateProfit } from "../components-func/mathUtils";
+import ColorIndicator from "../components-func/ColorIndicator";
+import WalletsValueChart from "../components-func/WalletsValueChart";
+import WalletsResultChart from "../components-func/WalletsResultChart";
 
 import AuthService from "../services/auth.service";
 import WalletService from "../services/wallet.service";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Page.css";
+import "../styles/Tables.css";
+import "../styles/Buttons.css";
 
 const Wallets = () => {
   const { wallets } = useContext(StoreContext);
+  const [sortedWallets, setSortedWallets] = useState([]);
 
-  const calculateResult = (wallet) => {
-    const basicValue = wallet.basicValue;
-    const actualValue = wallet.actualValue;
-    const difference = actualValue - basicValue;
-    const result = ((difference / basicValue) * 100).toFixed(2);
-
-    const resultColor = result > 0 ? "text-success" : "text-danger";
-
-    return {
-      result: !isNaN(result) ? `${result}%` : "0.00%",
-      color: resultColor,
-    };
-  };
-
-  const calculateProfit = (wallet) => {
-    const profit = wallet.actualValue - wallet.basicValue;
-    const formattedProfit = profit.toFixed(2);
-    return {
-      profit: !isNaN(formattedProfit)
-        ? profit >= 0
-          ? formattedProfit
-          : `${formattedProfit}`
-        : "0.00",
-      color: profit >= 0 ? "text-success" : "text-danger",
-    };
-  };
+  useEffect(() => {
+    const sorted = [...wallets].sort((a, b) => b.actualValue - a.actualValue);
+    setSortedWallets(sorted);
+  }, [wallets]);
 
   const handleDelete = (walletname) => {
     const user = AuthService.getCurrentUser();
@@ -45,42 +30,41 @@ const Wallets = () => {
   };
 
   return (
-    <div>
+    <div className="container-page">
       <h3>
         <strong>wallets</strong>
       </h3>
-      <br />
-      <table className="table table-hover">
+      <table className="table table-dark table-transparent">
         <thead className="thead-dark">
-          <tr>
-            <th>Name</th>
-            <th>Currency</th>
-            <th>Basic Value</th>
-            <th>Actual Value</th>
-            <th>Rate of Return</th>
-            <th>Profit</th>
-            <th>.</th>
+          <tr className="head-tr">
+            <th>name</th>
+            <th>currency</th>
+            <th>basic value</th>
+            <th>actual value</th>
+            <th>return [%]</th>
+            <th>profit</th>
+            <th>action</th>
           </tr>
         </thead>
         <tbody>
-          {wallets.map((wallet, index) => (
-            <tr key={index}>
+          {sortedWallets.map((wallet, index) => (
+            <tr className="pos-tr" key={index}>
               <td>{wallet.name}</td>
               <td>{wallet.currency}</td>
-              <td>{wallet.basicValue}</td>
-              <td>{wallet.actualValue}</td>
-              <td className={calculateResult(wallet).color}>
-                {calculateResult(wallet).result}
+              <td>{wallet.basicValue.toLocaleString()}</td>
+              <td>{wallet.actualValue.toLocaleString()}</td>
+              <td>
+                <ColorIndicator value={calculateResult(wallet).result} />
               </td>
-              <td className={calculateProfit(wallet).color}>
-                {calculateProfit(wallet).profit}
+              <td>
+                <ColorIndicator value={calculateProfit(wallet).profit} />
               </td>
               <td>
                 <button
                   className="btn btn-sm btn-danger"
                   onClick={() => handleDelete(wallet.name)}
                 >
-                  Usuń
+                  Burn
                 </button>
               </td>
             </tr>
@@ -91,6 +75,13 @@ const Wallets = () => {
         <Link to="/create-wallet" className="btn btn-dark">
           Add new wallet
         </Link>
+      </div>
+
+      <div className="chart-container" style={{ marginTop: "5vh" }}>
+        <WalletsValueChart wallets={sortedWallets} />
+      </div>
+      <div className="chart-container" style={{ marginTop: "5vh" }}>
+        <WalletsResultChart wallets={sortedWallets} />
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ const required = (value) => {
 };
 
 const DecreasePosition = () => {
-  const { walletName } = useParams();
+  const { walletName, positionId } = useParams();
   const [currencyWallet, setCurrencyWallet] = useState(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -53,6 +53,23 @@ const DecreasePosition = () => {
     }));
   };
 
+  useEffect(() => {
+    if (positionId) {
+      PositionService.getPosition(positionId)
+        .then((response) => {
+          setPositionData((prevData) => ({
+            ...prevData,
+            symbol: response.data.body.symbol,
+            exchange: response.data.body.exchange,
+            currency: response.data.body.userCurrency,
+          }));
+        })
+        .catch((error) => {
+          console.error("Error retrieving position details:", error);
+        });
+    }
+  }, [positionId]);
+
   // pobranie danych portfela
   useEffect(() => {
     WalletService.getCurrentWallet(user.username, walletName)
@@ -63,20 +80,6 @@ const DecreasePosition = () => {
         console.error("Error retrieving wallet details:", error);
       });
   }, [user.username, walletName]);
-
-  // pobranie aktywów
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const options = await AssetService.searchAssets(searchText);
-        setSymbolOptions(options);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, [searchText]);
 
   // zmiejszanie pozycji
   const handleDecreasePosition = (e) => {
@@ -111,74 +114,13 @@ const DecreasePosition = () => {
       );
     }
   };
+  const displayOpeningCurrencyRate = positionData.currency !== currencyWallet;
 
   return (
     <div className="col-md-12">
       <div className="card card-container edit-form">
         <Form onSubmit={handleDecreasePosition} ref={form}>
           <div className="row">
-            <div className="col-md-6">
-              <label htmlFor="symbol">Symbol</label>
-              <Select
-                styles={{
-                  control: (provided, state) => ({
-                    ...provided,
-                    boxShadow: "none",
-                    border: state.isFocused ? "none" : "1px solid #414140",
-                    borderRadius: "0",
-                    backgroundColor: "#272627",
-                  }),
-                  singleValue: (provided, state) => ({
-                    ...provided,
-                    color: "#a3a195",
-                  }),
-
-                  menu: (provided, state) => ({
-                    ...provided,
-                    border: "none",
-                    boxShadow: "none",
-                    backgroundColor: "#272627",
-                  }),
-                  option: (provided, state) => ({
-                    ...provided,
-                    backgroundColor: state.isFocused ? "#171616" : "#272627",
-                    color: state.isFocused ? "#ff9805" : "#a3a195",
-                  }),
-                }}
-                className="custom-select"
-                value={symbolOptions.find(
-                  (option) =>
-                    option.value.toLowerCase() ===
-                    positionData.symbol.toLowerCase()
-                )}
-                onChange={(selectedOption) => {
-                  setPositionData((prevData) => ({
-                    ...prevData,
-                    symbol: selectedOption.value,
-                    console: console.log(selectedOption.value),
-                  }));
-                }}
-                options={symbolOptions}
-                onInputChange={(inputValue) => setSearchText(inputValue)}
-              />
-            </div>
-
-            <div className="col-md-6">
-              <label htmlFor="currency">Currency</label>
-              <select
-                className="form-control"
-                name="currency"
-                value={positionData.currency}
-                onChange={onChange}
-                validations={[required]}
-              >
-                <option value="choose">Select</option>
-                <option value="EUR">EUR</option>
-                <option value="USD">USD</option>
-                <option value="PLN">PLN</option>
-              </select>
-            </div>
-
             <div className="col-md-6">
               <label htmlFor="quantity">Quantity</label>
               <Input
@@ -203,18 +145,19 @@ const DecreasePosition = () => {
                 validations={[required]}
               />
             </div>
-
-            <div className="col-md-6">
-              <label htmlFor="endingCurrencyRate">Ending Currency Rate</label>
-              <Input
-                type="number"
-                step="0.01"
-                className="form-control"
-                name="endingCurrencyRate"
-                value={positionData.endingCurrencyRate}
-                onChange={onChange}
-              />
-            </div>
+            {displayOpeningCurrencyRate && (
+              <div className="col-md-6">
+                <label htmlFor="endingCurrencyRate">Ending Currency Rate</label>
+                <Input
+                  type="number"
+                  step="0.01"
+                  className="form-control"
+                  name="endingCurrencyRate"
+                  value={positionData.endingCurrencyRate}
+                  onChange={onChange}
+                />
+              </div>
+            )}
           </div>
 
           <br />

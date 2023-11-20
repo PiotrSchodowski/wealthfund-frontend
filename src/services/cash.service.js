@@ -4,6 +4,7 @@ const API_URL = "http://localhost:8080/user";
 
 const cashDeposit = (userName, walletName, amount) => {
   const accessToken = JSON.parse(localStorage.getItem("user")).accessToken;
+
   const config = {
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -12,6 +13,7 @@ const cashDeposit = (userName, walletName, amount) => {
 
   return axios.post(
     `${API_URL}/${userName}/wallet/${walletName}/cashDeposit/${amount}`,
+    {},
     config
   );
 };
@@ -24,8 +26,9 @@ const cashWithdraw = (userName, walletName, amount) => {
     },
   };
 
-  return axios.post(
+  return axios.put(
     `${API_URL}/${userName}/wallet/${walletName}/cashWithdraw/${amount}`,
+    {},
     config
   );
 };
