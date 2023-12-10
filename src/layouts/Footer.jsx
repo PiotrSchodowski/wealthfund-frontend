@@ -1,9 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCog } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
-  faTwitter,
-  faGoogle,
   faInstagram,
   faLinkedinIn,
   faGithub,
@@ -16,47 +15,13 @@ const Footer = () => {
     <footer className="bg-dark text-center text-white">
       <div className="container p-4 pb-0 footer-container">
         <section className="mb-4">
-          {/* Facebook */}
-          <a
-            className="btn btn-outline-light btn-floating m-1"
-            href="facebook.com"
-            role="button"
-          >
-            <FontAwesomeIcon icon={faFacebookF} />
-          </a>
-
-          {/* Twitter */}
-          <a
-            className="btn btn-outline-light btn-floating m-1"
-            href="#!"
-            role="button"
-          >
-            <FontAwesomeIcon icon={faTwitter} />
-          </a>
-
-          {/* Google */}
-          <a
-            className="btn btn-outline-light btn-floating m-1"
-            href="#!"
-            role="button"
-          >
-            <FontAwesomeIcon icon={faGoogle} />
-          </a>
-
-          {/* Instagram */}
-          <a
-            className="btn btn-outline-light btn-floating m-1"
-            href="#!"
-            role="button"
-          >
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-
           {/* Linkedin */}
           <a
             className="btn btn-outline-light btn-floating m-1"
-            href="#!"
+            href="https://www.linkedin.com/in/piotr-schodowski-7bb09328a/"
             role="button"
+            target="_blank"
+            rel="noreferrer"
           >
             <FontAwesomeIcon icon={faLinkedinIn} />
           </a>
@@ -64,19 +29,54 @@ const Footer = () => {
           {/* Github */}
           <a
             className="btn btn-outline-light btn-floating m-1"
-            href="#!"
+            href="https://github.com/PiotrSchodowski"
             role="button"
+            target="_blank"
+            rel="noreferrer"
           >
             <FontAwesomeIcon icon={faGithub} />
+          </a>
+          {/* Facebook */}
+          <a
+            className="btn btn-outline-light btn-floating m-1"
+            href="https://www.facebook.com"
+            role="button"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FontAwesomeIcon icon={faFacebookF} />
+          </a>
+
+          {/* Instagram */}
+          <a
+            className="btn btn-outline-light btn-floating m-1"
+            href="https://www.instagram.com"
+            role="button"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FontAwesomeIcon icon={faInstagram} />
           </a>
         </section>
       </div>
 
-      <div className="text-center p-3" style={{ backgroundColor: "#171616" }}>
-        &copy; 2024 AwesomeSite. All rights reserved.
+      <div
+        className="text-center p-3"
+        style={{
+          backgroundColor: "#171616",
+          fontVariant: "small-caps",
+          fontSize: "1.1rem",
+          color: "#fafbfb",
+        }}
+      >
+        <span style={{ fontSize: "15px", fontWeight: "bold" }}>
+          {" "}
+          &copy; 2024
+        </span>{" "}
+        AwesomeSite. all rights reserved.
         <p className="text-white mt-2">
-          Crafted with <span style={{ color: "#ff9805" }}>&hearts;</span> by
-          Piotr Schodowski
+          crafted <FontAwesomeIcon icon={faCog} style={{ color: "#ff9805" }} />{" "}
+          by piotr schodowski
         </p>
       </div>
     </footer>
