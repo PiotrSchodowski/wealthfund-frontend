@@ -64,7 +64,7 @@ const Home = () => {
           fontVariant: "small-caps",
           letterSpacing: "2px",
           display: "flex",
-          minHeight: "35vh",
+          minHeight: "40vh",
         }}
       >
         WealthFund is not just a tool; it's a partner that supports you at every

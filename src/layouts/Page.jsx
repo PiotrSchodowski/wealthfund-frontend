@@ -1,5 +1,6 @@
-import React from "react";
+import { React, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
+import { StoreContext } from "../store/StoreProvider";
 
 import AuthService from "../services/auth.service";
 
@@ -16,12 +17,14 @@ import CreatePosition from "../components-windows/CreatePosition";
 import History from "../main-pages/History";
 import Assets from "../main-pages/Assets";
 import Footer from "./Footer";
+import NoWalletsPage from "../components-error/NoWalletsPage";
 
 import "../styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Page = () => {
   const currentUser = AuthService.getCurrentUser();
+  const { wallets } = useContext(StoreContext);
 
   return (
     <div className="container mt-3">
@@ -35,7 +38,11 @@ const Page = () => {
             <Route exact path="/profile" element={<Profile />} />
             <Route path="/wallets" element={<Wallets />} />
             <Route path="/create-wallet" element={<CreateWallet />} />
-            <Route path="/positions/*" element={<WalletFeaturesDisplay />} />
+            {wallets.length > 0 ? (
+              <Route path="/positions/*" element={<WalletFeaturesDisplay />} />
+            ) : (
+              <Route path="/positions/*" element={<NoWalletsPage />} />
+            )}
             <Route path="/create-position/*" element={<CreatePosition />} />
             <Route path="/history/*" element={<History />} />
             <Route path="*" element={<ErrorPage />} />
