@@ -69,9 +69,6 @@ const WalletValueChart = ({ wallets }) => {
           minRotation: 0,
           color: "#fafbfb",
         },
-        grid: {
-          color: "#171616",
-        },
       },
       y: {
         beginAtZero: true,

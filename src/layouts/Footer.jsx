@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCog } from "@fortawesome/free-solid-svg-icons";
+import { faCog, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faInstagram,
@@ -15,6 +15,16 @@ const Footer = () => {
     <footer className="bg-dark text-center text-white">
       <div className="container p-4 pb-0 footer-container">
         <section className="mb-4">
+          {/* Email */}
+          <a
+            className="btn btn-outline-light btn-floating m-1"
+            href="mailto:ps.schodowski@gmail.com"
+            role="button"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FontAwesomeIcon icon={faEnvelope} />
+          </a>
           {/* Linkedin */}
           <a
             className="btn btn-outline-light btn-floating m-1"
@@ -39,7 +49,7 @@ const Footer = () => {
           {/* Facebook */}
           <a
             className="btn btn-outline-light btn-floating m-1"
-            href="https://www.facebook.com"
+            href="https://facebook.com/piotr.schodowski/"
             role="button"
             target="_blank"
             rel="noreferrer"
@@ -58,6 +68,20 @@ const Footer = () => {
             <FontAwesomeIcon icon={faInstagram} />
           </a>
         </section>
+      </div>
+      <div
+        style={{
+          paddingTop: "3vh",
+          backgroundColor: "#171616",
+          fontVariant: "small-caps",
+          fontSize: "0.9rem",
+          color: "#fafbfb",
+        }}
+      >
+        This is a beta version. It is still under development. If you find any
+        bugs or have any suggestions, please contact me {"    "}
+        <FontAwesomeIcon icon={faEnvelope} />
+        {"   "}
       </div>
 
       <div
