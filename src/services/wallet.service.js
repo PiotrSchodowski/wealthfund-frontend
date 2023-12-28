@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/user";
+const API_URL = "http://localhost:8080/api/user";
 
 const createWallet = (userName, walletName, currency) => {
   const accessToken = JSON.parse(localStorage.getItem("user")).accessToken;
